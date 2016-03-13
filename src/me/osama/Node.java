@@ -19,6 +19,7 @@ public class Node implements INode, Comparable<INode>{
 
     @Override
     public Node nextState() {
+
         return null;
     }
 
