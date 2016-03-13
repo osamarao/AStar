@@ -3,7 +3,7 @@ package me.osama;
 /**
  * Created by Osama Rao on 17-Feb-16.
  */
-public class Node implements INode, Comparable<INode>{
+public class Node implements INode, Comparable<INode> {
     Node parent;
     Grid grid;
 
@@ -18,16 +18,18 @@ public class Node implements INode, Comparable<INode>{
     }
 
     @Override
-    public Node nextState() {
-
-        return null;
+    public Node nextState(Action action) {
+        Node node = new Node();
+        node.parent = this;
+        node.grid = grid.applyAction(action);
+        return node;
     }
 
     @Override
     public int compareTo(INode o) {
-        if (getF() > o.getF()){
+        if (getF() > o.getF()) {
             return 1;
-        } else if (getF() < o.getF()){
+        } else if (getF() < o.getF()) {
             return -1;
         } else {
             return 0;

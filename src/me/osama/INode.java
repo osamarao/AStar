@@ -6,6 +6,6 @@ package me.osama;
 public interface INode {
     public void call();
     public int getF();
-    public Node nextState();
+    public Node nextState(Action action);
 
 }

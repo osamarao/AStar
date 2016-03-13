@@ -9,7 +9,7 @@ public class Grid extends BaseGrid {
 
     public Grid(Grid another) {
         this.zeroPosition = another.zeroPosition;
-        this.grid = another.grid;
+        this.gridMap = another.gridMap;
     }
 
     @Override
@@ -66,9 +66,9 @@ public class Grid extends BaseGrid {
     }
 
     private void swapZero(Grid grid, Position toPosition) {
-        Integer tileAtToPosition = grid.grid.get(toPosition);
-        grid.grid.put(toPosition, grid.grid.get(zeroPosition));
-        grid.grid.put(zeroPosition, tileAtToPosition);
+        Integer tileAtToPosition = grid.gridMap.get(toPosition);
+        grid.gridMap.put(toPosition, grid.gridMap.get(zeroPosition));
+        grid.gridMap.put(zeroPosition, tileAtToPosition);
     }
 
 
@@ -77,10 +77,10 @@ public class Grid extends BaseGrid {
         int manhattanDistance = 0;
         //TODO Manhattan distance
         for (int i = 0; i < 9; i++) {
-            // Find tile in current grid
-            Position tilePositionOnCurrentGrid = findTile(i, grid);
-            // Find tile in goal grid
-            Position tilePositionOnGoalGrid = findTile(i, GoalGrid.getInstance().grid);
+            // Find tile in current gridMap
+            Position tilePositionOnCurrentGrid = findTile(i, gridMap);
+            // Find tile in goal gridMap
+            Position tilePositionOnGoalGrid = findTile(i, GoalGrid.getInstance().gridMap);
             // Calculate difference
             manhattanDistance += calculateAbsoluteDifference(tilePositionOnCurrentGrid, tilePositionOnGoalGrid);
         }
