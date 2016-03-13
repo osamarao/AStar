@@ -4,17 +4,17 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        Grid startGrid = new Grid();
-        startGrid.layGrid();
+//        Grid startGrid = new Grid();
+//        startGrid.layGrid();
+////        startGrid.printGrid();
+//
+//        GoalGrid goalGrid = GoalGrid.getInstance();
+//        goalGrid.layGrid();
+//        goalGrid.printGrid();
 //        startGrid.printGrid();
-
-        GoalGrid goalGrid = GoalGrid.getInstance();
-        goalGrid.layGrid();
-        goalGrid.printGrid();
-        startGrid.printGrid();
-        System.out.println(goalGrid.manhattanDistance());
-
-        System.out.println(startGrid.manhattanDistance());
+//        System.out.println(goalGrid.manhattanDistance());
+//
+//        System.out.println(startGrid.manhattanDistance());
 
         // PriorityQueue<Node> frontier = new PriorityQueue<>();
 
@@ -27,6 +27,7 @@ public class Main {
 //        frontier.poll().call();
 //        frontier.poll().call();
 //        frontier.poll().call();
+
     }
 
 

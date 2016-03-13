@@ -11,6 +11,7 @@ public abstract class BaseGrid implements Actionable, ManhattanDistance, Printab
 
     private HashSet<Integer> toKeepUnique;
     protected HashMap<Position, Integer> grid = new HashMap<>();
+    protected Position zeroPosition;
 
     public void layGrid() {
         Scanner scanner = new Scanner(System.in);
@@ -35,6 +36,11 @@ public abstract class BaseGrid implements Actionable, ManhattanDistance, Printab
                     layGrid();
                     return;
                 }
+
+                if (toBeAdded == 0){
+                    zeroPosition = new Position(x,y);
+                }
+
                 toKeepUnique.add(toBeAdded);
                 grid.put( new Position(x, y), toBeAdded);
             }
