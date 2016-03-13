@@ -4,12 +4,15 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-//        Grid startGrid = new Grid();
-//        startGrid.layGrid();
-////        startGrid.printGrid();
+        System.out.println("Start Grid");
+        Grid startGrid = new Grid();
+        int[] startTiles = new int[]{ 5,2,4,1,0,3,8,7,6 };
+        startGrid.layGrid(startTiles);
+        startGrid.printGrid();
 //
+//        System.out.println("Goal Grid");
 //        GoalGrid goalGrid = GoalGrid.getInstance();
-//        goalGrid.layGrid();
+//        goalGrid.layGrid(new int[]{ 5,2,4,1,7,3,8,6,0 });
 //        goalGrid.printGrid();
 //        startGrid.printGrid();
 //        System.out.println(goalGrid.manhattanDistance());
@@ -27,7 +30,27 @@ public class Main {
 //        frontier.poll().call();
 //        frontier.poll().call();
 //        frontier.poll().call();
-
+//        AStarSearch aStarSearch = new AStarSearch(new Node(startGrid));
+//        boolean searchStatus = aStarSearch.search();
+//        if (searchStatus){
+//            aStarSearch.printPath();
+//        } else {
+//            System.out.println("Search Failed");
+//        }
+        Node node = new Node(startGrid);
+        for (Action action : Action.values()) {
+            System.out.println(action);
+            Node childNode = node.nextState(action);
+            childNode.grid.printGrid();
+//            if (childNode.grid != null) {
+//                if (!explored.contains(childNode) || !frontier.contains(childNode)) {
+//                    frontier.add(childNode);
+//                } else if (frontier.contains(childNode)) {
+//                    frontier.removeIf(new LowerChildPredicate(childNode));
+//                    frontier.add(childNode);
+//                }
+//            }
+        }
     }
 
 
