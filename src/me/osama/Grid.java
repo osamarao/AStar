@@ -13,7 +13,8 @@ public class Grid extends BaseGrid {
 
     public Grid(HashMap<Position, Integer> gridMap, Position zeroPosition) {
         this.zeroPosition = zeroPosition;
-        this.gridMap = gridMap;
+        if (gridMap != null)
+            this.gridMap = new HashMap<>(gridMap);
     }
 
     @Override
@@ -27,11 +28,11 @@ public class Grid extends BaseGrid {
                 if (!isLegalMove(newX)) {
                     return null; // invalid move
                 } else {
-//                    Grid grid = new Grid(this);
+                    Grid grid1 = new Grid(this);
 //                    System.out.println("applying " + action);
 //                    grid.printGrid();
-                    swapZero(grid, new Position(newX, grid.zeroPosition.getY()));
-                    return grid;
+                    swapZero(grid1, new Position(newX, grid1.zeroPosition.getY()));
+                    return grid1;
                 }
             case DOWN:
                 // subtract 1 from x
@@ -40,33 +41,33 @@ public class Grid extends BaseGrid {
                 if (!isLegalMove(newX)) {
                     return null; // invalid move
                 } else {
-//                    Grid grid = new Grid(this);
+                    Grid grid1 = new Grid(this);
 //                    System.out.println("applying " + action);
 //                    grid.printGrid();
-                    swapZero(grid, new Position(newX, grid.zeroPosition.getY()));
-                    return this;
+                    swapZero(grid1, new Position(newX, grid1.zeroPosition.getY()));
+                    return grid1;
                 }
             case RIGHT:
                 newY = grid.zeroPosition.getY() + 1;
                 if (!isLegalMove(newY)) {
                     return null; // invalid move
                 } else {
-//                    Grid grid = new Grid(this);
+                    Grid grid1 = new Grid(this);
 //                    System.out.println("applying " + action);
 //                    grid.printGrid();
-                    swapZero(grid, new Position(grid.zeroPosition.getX(), newY));
-                    return grid;
+                    swapZero(grid1, new Position(grid1.zeroPosition.getX(), newY));
+                    return grid1;
                 }
             case LEFT:
                 newY = grid.zeroPosition.getY() - 1;
                 if (!isLegalMove(newY)) {
                     return null; // invalid move
                 } else {
-//                    Grid grid = new Grid(this);
+                    Grid grid1 = new Grid(this);
 //                    System.out.println("applying " + action);
 //                    grid.printGrid();
-                    swapZero(grid, new Position(grid.zeroPosition.getX(), newY));
-                    return grid;
+                    swapZero(grid1, new Position(grid1.zeroPosition.getX(), newY));
+                    return grid1;
                 }
             default:
                 return null;
@@ -84,7 +85,7 @@ public class Grid extends BaseGrid {
         Integer tileAtToPosition = grid.gridMap.get(toPosition);
         grid.gridMap.put(toPosition, grid.gridMap.get(grid.zeroPosition));
         grid.gridMap.put(grid.zeroPosition, tileAtToPosition);
-//        grid.zeroPosition = toPosition;
+        grid.zeroPosition = toPosition;
     }
 
 
