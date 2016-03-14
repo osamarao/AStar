@@ -16,7 +16,7 @@ public abstract class BaseGrid implements Actionable, ManhattanDistance, Printab
     public void layGrid() {
         Scanner scanner = new Scanner(System.in);
         toKeepUnique = new HashSet<>();
-
+        gridMap = new HashMap<>();
         for (int x = 2; x > -1; x--) {
             for (int y = 2 ; y > -1 ; y--){
                 System.out.print("( " + x + "," + y + " )");
@@ -49,6 +49,7 @@ public abstract class BaseGrid implements Actionable, ManhattanDistance, Printab
 
     public void layGrid(int[] tiles){
         toKeepUnique = new HashSet<>();
+        gridMap = new HashMap<>();
         int i = 0;
         for (int x = 2; x > -1; x--) {
             for (int y = 2 ; y > -1 ; y--){

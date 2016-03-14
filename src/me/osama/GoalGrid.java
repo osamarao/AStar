@@ -18,7 +18,7 @@ public class GoalGrid extends BaseGrid{
     }
 
     @Override
-    public Grid applyAction(Action action) {
+    public Grid applyAction(Grid grid, Action action) {
         throw new UnsupportedOperationException();
     }
 

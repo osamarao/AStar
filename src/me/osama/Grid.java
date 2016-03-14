@@ -7,58 +7,65 @@ import java.util.HashMap;
  */
 public class Grid extends BaseGrid {
 
-    public Grid() {
-
+    public Grid(Grid grid) {
+        this(grid.gridMap, grid.zeroPosition);
     }
 
-    public Grid(Grid another) {
-        this.zeroPosition = another.zeroPosition;
-        this.gridMap = another.gridMap;
+    public Grid(HashMap<Position, Integer> gridMap, Position zeroPosition) {
+        this.zeroPosition = zeroPosition;
+        this.gridMap = gridMap;
     }
 
     @Override
-    public Grid applyAction(Action action) {
+    public Grid applyAction(Grid grid, Action action) {
         int newX, newY;
-        Grid startingGrid = this;
         switch (action) {
             case UP:
                 // add 1 to x
                 // calculate new position
-                newX = zeroPosition.getX() + 1;
+                newX = grid.zeroPosition.getX() + 1;
                 if (!isLegalMove(newX)) {
                     return null; // invalid move
                 } else {
-                    Grid grid = new Grid(this);
-                    swapZero(grid, new Position(newX, zeroPosition.getY()));
+//                    Grid grid = new Grid(this);
+//                    System.out.println("applying " + action);
+//                    grid.printGrid();
+                    swapZero(grid, new Position(newX, grid.zeroPosition.getY()));
                     return grid;
                 }
             case DOWN:
                 // subtract 1 from x
                 // calculate new position
-                newX = zeroPosition.getX() - 1;
+                newX = grid.zeroPosition.getX() - 1;
                 if (!isLegalMove(newX)) {
                     return null; // invalid move
                 } else {
-                    Grid grid = new Grid(this);
-                    swapZero(grid, new Position(newX, zeroPosition.getY()));
-                    return grid;
+//                    Grid grid = new Grid(this);
+//                    System.out.println("applying " + action);
+//                    grid.printGrid();
+                    swapZero(grid, new Position(newX, grid.zeroPosition.getY()));
+                    return this;
                 }
             case RIGHT:
-                newY = zeroPosition.getY() + 1;
+                newY = grid.zeroPosition.getY() + 1;
                 if (!isLegalMove(newY)) {
                     return null; // invalid move
                 } else {
-                    Grid grid = new Grid(this);
-                    swapZero(grid, new Position(zeroPosition.getX(), newY));
+//                    Grid grid = new Grid(this);
+//                    System.out.println("applying " + action);
+//                    grid.printGrid();
+                    swapZero(grid, new Position(grid.zeroPosition.getX(), newY));
                     return grid;
                 }
             case LEFT:
-                newY = zeroPosition.getY() - 1;
+                newY = grid.zeroPosition.getY() - 1;
                 if (!isLegalMove(newY)) {
                     return null; // invalid move
                 } else {
-                    Grid grid = new Grid(this);
-                    swapZero(grid, new Position(zeroPosition.getX(), newY));
+//                    Grid grid = new Grid(this);
+//                    System.out.println("applying " + action);
+//                    grid.printGrid();
+                    swapZero(grid, new Position(grid.zeroPosition.getX(), newY));
                     return grid;
                 }
             default:
@@ -73,11 +80,11 @@ public class Grid extends BaseGrid {
     private void swapZero(Grid grid, Position toPosition) {
         System.out.println("swapZero");
         System.out.println("tileAtToPosition " + toPosition);
-        System.out.println("zeroPosition " + zeroPosition);
+        System.out.println("zeroPosition " + grid.zeroPosition);
         Integer tileAtToPosition = grid.gridMap.get(toPosition);
-        grid.gridMap.put(toPosition, grid.gridMap.get(zeroPosition));
-        grid.gridMap.put(zeroPosition, tileAtToPosition);
-        zeroPosition = toPosition;
+        grid.gridMap.put(toPosition, grid.gridMap.get(grid.zeroPosition));
+        grid.gridMap.put(grid.zeroPosition, tileAtToPosition);
+//        grid.zeroPosition = toPosition;
     }
 
 

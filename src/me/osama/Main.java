@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
         System.out.println("Start Grid");
-        Grid startGrid = new Grid();
+        Grid startGrid = new Grid(null, null);
         int[] startTiles = new int[]{ 5,2,4,1,0,3,8,7,6 };
         startGrid.layGrid(startTiles);
         startGrid.printGrid();
