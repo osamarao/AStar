@@ -8,12 +8,13 @@ public class Main {
         Grid startGrid = new Grid(null, null);
         int[] startTiles = new int[]{ 5,2,4,1,0,3,8,7,6 };
         startGrid.layGrid(startTiles);
-        startGrid.printGrid();
+        //startGrid.printGrid();
 //
 //        System.out.println("Goal Grid");
         GoalGrid goalGrid = GoalGrid.getInstance();
         goalGrid.layGrid(new int[]{ 5,2,4,1,7,3,8,6,0 });
-//        goalGrid.printGrid();
+        System.out.println("Goal Grid");
+        goalGrid.printGrid();
 //        startGrid.printGrid();
 //        System.out.println(goalGrid.manhattanDistance());
 //
@@ -33,7 +34,8 @@ public class Main {
         AStarSearch aStarSearch = new AStarSearch(new Node(startGrid));
         boolean searchStatus = aStarSearch.search();
         if (searchStatus){
-            aStarSearch.printPath();
+            System.out.println("search Complete");
+            //aStarSearch.printPath();
         } else {
             System.out.println("Search Failed");
         }

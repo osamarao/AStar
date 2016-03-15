@@ -30,6 +30,7 @@ public class AStarSearch implements Search, PrintPath {
             Node node = frontier.poll();
 
             if (node.equals(goalNode)) {
+                node.grid.printGrid();
                 return true;
             }
 
