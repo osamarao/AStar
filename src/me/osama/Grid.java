@@ -75,17 +75,20 @@ public class Grid extends BaseGrid {
     }
 
     private boolean isLegalMove(int value) {
-        return value <= 2 || value >= 0;
+        return value <= 2 && value >= 0;
     }
 
     private void swapZero(Grid grid, Position toPosition) {
-        System.out.println("swapZero");
-        System.out.println("tileAtToPosition " + toPosition);
-        System.out.println("zeroPosition " + grid.zeroPosition);
+//        System.out.println("Before Swap");
+//        System.out.println("tileAtToPosition " + toPosition);
+//        System.out.println("zeroPosition " + grid.zeroPosition);
         Integer tileAtToPosition = grid.gridMap.get(toPosition);
         grid.gridMap.put(toPosition, grid.gridMap.get(grid.zeroPosition));
         grid.gridMap.put(grid.zeroPosition, tileAtToPosition);
         grid.zeroPosition = toPosition;
+//        System.out.println("After Swap");
+//        System.out.println("tileAtToPosition " + toPosition);
+//        System.out.println("zeroPosition " + grid.zeroPosition);
     }
 
 

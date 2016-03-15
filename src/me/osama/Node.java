@@ -25,6 +25,8 @@ public class Node implements INode, Comparable<INode> {
 
     @Override
     public Node nextState(Action action) {
+        System.out.println("Applying On... ");
+        grid.printGrid();
         Node node = new Node(grid.applyAction((Grid) grid, action));
         node.parent = this;
         return node;

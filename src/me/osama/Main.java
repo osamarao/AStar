@@ -11,8 +11,8 @@ public class Main {
         startGrid.printGrid();
 //
 //        System.out.println("Goal Grid");
-//        GoalGrid goalGrid = GoalGrid.getInstance();
-//        goalGrid.layGrid(new int[]{ 5,2,4,1,7,3,8,6,0 });
+        GoalGrid goalGrid = GoalGrid.getInstance();
+        goalGrid.layGrid(new int[]{ 5,2,4,1,7,3,8,6,0 });
 //        goalGrid.printGrid();
 //        startGrid.printGrid();
 //        System.out.println(goalGrid.manhattanDistance());
@@ -30,27 +30,57 @@ public class Main {
 //        frontier.poll().call();
 //        frontier.poll().call();
 //        frontier.poll().call();
-//        AStarSearch aStarSearch = new AStarSearch(new Node(startGrid));
-//        boolean searchStatus = aStarSearch.search();
-//        if (searchStatus){
-//            aStarSearch.printPath();
-//        } else {
-//            System.out.println("Search Failed");
-//        }
-        Node node = new Node(startGrid);
-        for (Action action : Action.values()) {
-            System.out.println(action);
-            Node childNode = node.nextState(action);
-            childNode.grid.printGrid();
-//            if (childNode.grid != null) {
-//                if (!explored.contains(childNode) || !frontier.contains(childNode)) {
-//                    frontier.add(childNode);
-//                } else if (frontier.contains(childNode)) {
-//                    frontier.removeIf(new LowerChildPredicate(childNode));
-//                    frontier.add(childNode);
-//                }
-//            }
+        AStarSearch aStarSearch = new AStarSearch(new Node(startGrid));
+        boolean searchStatus = aStarSearch.search();
+        if (searchStatus){
+            aStarSearch.printPath();
+        } else {
+            System.out.println("Search Failed");
         }
+//        Node node = new Node(startGrid);
+//            Node selectNode = null;
+//        for (Action action : Action.values()) {
+////            System.out.println(action);
+//            Node childNode = node.nextState(action);
+////            childNode.grid.printGrid();
+////            System.out.println("f(n) = " + childNode.getF());
+//            int f = 1000000;
+//            if (childNode.getF() < f)
+//                selectNode = childNode;
+////            if (childNode.grid != null) {
+////                if (!explored.contains(childNode) || !frontier.contains(childNode)) {
+////                    frontier.add(childNode);
+////                } else if (frontier.contains(childNode)) {
+////                    frontier.removeIf(new LowerChildPredicate(childNode));
+////                    frontier.add(childNode);
+////                }
+////            }
+//        }
+//        System.out.println(selectNode.grid.zeroPosition);
+//        selectNode.grid.printGrid();
+//
+//        System.out.println("node selected");
+//        System.out.println("applying moves to selected node");
+//
+//        Node selectedNodeCopy = new Node(selectNode.grid);
+//        System.out.println("selectednodecopy zeroposition " + selectedNodeCopy.grid.zeroPosition);
+//        for (Action action : Action.values()) {
+//            System.out.println(action);
+//            Node childNode = selectedNodeCopy.nextState(action);
+//            if (childNode.grid != null){
+//                System.out.println("After Applied...");
+//                childNode.grid.printGrid();
+//                int f = 1000000;
+//                if (childNode.getF() < f)
+//                    selectNode = childNode;
+//            } else {
+//                System.out.println("Illegal Move");
+//            }
+//
+//
+//        }
+//        System.out.println(selectNode.grid.zeroPosition);
+//        selectNode.grid.printGrid();
     }
 
 
