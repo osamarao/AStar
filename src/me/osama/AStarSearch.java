@@ -30,7 +30,8 @@ public class AStarSearch implements Search, PrintPath {
             Node node = frontier.poll();
 
             if (node.equals(goalNode)) {
-                node.grid.printGrid();
+                explored.add(node);
+//                node.grid.printGrid();
                 return true;
             }
 
@@ -49,17 +50,19 @@ public class AStarSearch implements Search, PrintPath {
                 }
             }
 
-            node.grid.printGrid();
-
+            //node.grid.printGrid();
+            System.out.println("Explored Size: " + explored.size());
         }
     }
 
     @Override
+    public void printPath(Node node) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void printPath() {
-        Node node = explored.poll();
-        while (node.parent != null) {
-            node.grid.printGrid();
-        }
+        Node.printPath(explored.poll());
     }
 
     private class LowerChildPredicate implements Predicate<Node> {

@@ -55,4 +55,19 @@ public class Node implements INode, Comparable<INode> {
         result = 31 * result + (grid != null ? grid.hashCode() : 0);
         return result;
     }
+
+
+    public static void printPath(Node node) {
+        if (node.parent != null){
+            node.grid.printGrid();
+            System.out.println(" /\\");
+            System.out.println("  | ");
+            System.out.println("  | ");
+
+            printPath(node.parent);
+        } else {
+            node.grid.printGrid();
+        }
+    }
+
 }

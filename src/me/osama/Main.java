@@ -4,17 +4,23 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        System.out.println("Start Grid");
+//        System.out.println("Start Grid");
         Grid startGrid = new Grid(null, null);
-        int[] startTiles = new int[]{ 5,2,4,1,0,3,8,7,6 };
+//        int[] startTiles = new int[]{ 8,7,6,5,4,3,2,1,0 };
+//        int[] startTiles = new int[]{ 5,2,4,1,0,3,8,7,6 };
+        int[] startTiles = new int[]{ 3,2,1,6,0,8,4,5,7 };
+//        startGrid.layGrid();
         startGrid.layGrid(startTiles);
-        //startGrid.printGrid();
+//        startGrid.printGrid();
 //
 //        System.out.println("Goal Grid");
         GoalGrid goalGrid = GoalGrid.getInstance();
-        goalGrid.layGrid(new int[]{ 5,2,4,1,7,3,8,6,0 });
-        System.out.println("Goal Grid");
-        goalGrid.printGrid();
+//        goalGrid.layGrid(new int[]{ 5,2,4,1,7,3,8,6,0 });
+        goalGrid.layGrid(new int[]{ 3,2,1,4,0,8,5,6,7 });
+//        goalGrid.layGrid(new int[]{ 2,1,0,3,4,5,8,7,6 });
+//        goalGrid.layGrid();
+//        System.out.println("Goal Grid");
+//        goalGrid.printGrid();
 //        startGrid.printGrid();
 //        System.out.println(goalGrid.manhattanDistance());
 //
@@ -34,8 +40,9 @@ public class Main {
         AStarSearch aStarSearch = new AStarSearch(new Node(startGrid));
         boolean searchStatus = aStarSearch.search();
         if (searchStatus){
-            System.out.println("search Complete");
-            //aStarSearch.printPath();
+
+            aStarSearch.printPath();
+            System.out.println("Search Complete");
         } else {
             System.out.println("Search Failed");
         }
