@@ -14,7 +14,7 @@ public class Grid extends BaseGrid {
     public Grid(HashMap<Position, Integer> gridMap, Position zeroPosition) {
         this.zeroPosition = zeroPosition;
         if (gridMap != null)
-            this.gridMap = new HashMap<>(gridMap);
+            this.gridMap = new HashMap<Position, Integer>(gridMap);
     }
 
     @Override

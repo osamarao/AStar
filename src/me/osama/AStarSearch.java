@@ -44,7 +44,14 @@ public class AStarSearch implements Search, PrintPath {
                     if (!explored.contains(childNode) || !frontier.contains(childNode)) {
                         frontier.add(childNode);
                     } else if (frontier.contains(childNode)) {
-                        frontier.removeIf(new LowerChildPredicate(childNode));
+                        //frontier.removeIf(new LowerChildPredicate(childNode));
+                        for (Node someNode : frontier) {
+                            if (childNode.equals(someNode)) {
+                               if ( childNode.getF() < someNode.getF() ){
+                                    frontier.remove(someNode);
+                               }
+                            }
+                        }
                         frontier.add(childNode);
                     }
                 }

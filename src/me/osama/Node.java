@@ -59,12 +59,13 @@ public class Node implements INode, Comparable<INode> {
 
     public static void printPath(Node node) {
         if (node.parent != null){
-            node.grid.printGrid();
-            System.out.println(" /\\");
-            System.out.println("  | ");
-            System.out.println("  | ");
+
+//            System.out.println(" /\\");
+//            System.out.println("  | ");
+//            System.out.println("  | ");
 
             printPath(node.parent);
+            node.grid.printGrid();
         } else {
             node.grid.printGrid();
         }
