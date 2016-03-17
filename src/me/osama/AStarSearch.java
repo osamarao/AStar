@@ -10,8 +10,8 @@ public class AStarSearch implements Search, PrintPath {
 
     private final Node startNode;
     private final Node goalNode;
-    private PriorityQueue<Node> frontier = new PriorityQueue<>();
-    private PriorityQueue<Node> explored = new PriorityQueue<>();
+    private PriorityQueue<Node> frontier = new PriorityQueue<Node>();
+    private PriorityQueue<Node> explored = new PriorityQueue<Node>();
 
 
     public AStarSearch(Node startNode) {
@@ -51,7 +51,6 @@ public class AStarSearch implements Search, PrintPath {
             }
 
             //node.grid.printGrid();
-            System.out.println("Explored Size: " + explored.size());
         }
     }
 

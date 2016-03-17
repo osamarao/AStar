@@ -10,13 +10,13 @@ import java.util.Scanner;
 public abstract class BaseGrid implements Actionable, ManhattanDistance, Printable {
 
     private HashSet<Integer> toKeepUnique;
-    protected HashMap<Position, Integer> gridMap = new HashMap<>();
+    protected HashMap<Position, Integer> gridMap = new HashMap<Position, Integer>();
     protected Position zeroPosition;
 
     public void layGrid() {
         Scanner scanner = new Scanner(System.in);
-        toKeepUnique = new HashSet<>();
-        gridMap = new HashMap<>();
+        toKeepUnique = new HashSet<Integer>();
+        gridMap = new HashMap<Position, Integer>();
         for (int x = 2; x > -1; x--) {
             for (int y = 2 ; y > -1 ; y--){
                 System.out.print("( " + x + "," + y + " )");
@@ -48,8 +48,8 @@ public abstract class BaseGrid implements Actionable, ManhattanDistance, Printab
     }
 
     public void layGrid(int[] tiles){
-        toKeepUnique = new HashSet<>();
-        gridMap = new HashMap<>();
+        toKeepUnique = new HashSet<Integer>();
+        gridMap = new HashMap<Position, Integer>();
         int i = 0;
         for (int x = 2; x > -1; x--) {
             for (int y = 2 ; y > -1 ; y--){
